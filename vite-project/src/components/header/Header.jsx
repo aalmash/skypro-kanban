@@ -10,7 +10,7 @@ export const Header = () => {
           </div>
           <div className="header__logo _dark">
             <a href="" target="_self">
-              <img src="public/logo.png" alt="logo" />
+              <img src="/logo.png" alt="logo" />
             </a>
           </div>
           <nav className="header__nav">

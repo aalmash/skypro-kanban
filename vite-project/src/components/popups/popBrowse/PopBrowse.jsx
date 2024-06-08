@@ -47,7 +47,7 @@ export const PopBrowse = () => {
                     name="text"
                     id="textArea01"
                     readOnly
-                    placeholder="Введите описание задачи..."
+                    placeholder="Описание задачи"
                   ></textarea>
                 </div>
               </form>
