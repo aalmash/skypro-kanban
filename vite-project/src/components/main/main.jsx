@@ -7,9 +7,9 @@ export const Main = ({ cards }) => {
       <div className="container">
         <div className="main__block">
           <div className="main__content">
-            {statusList.map((status, id) => (
+            {statusList.map((status, i) => (
               <Column 
-              key={id}
+              key={i}
               title={status} 
               cards={cards.filter((card) => card.status === status)}
               />
