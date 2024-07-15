@@ -5,12 +5,12 @@ export const Header = () => {
         <div className="header__block">
           <div className="header__logo _show _light">
             <a href="" target="_self">
-              <img src="public/logo.png" alt="logo" />
+              <img src="/logo.png" alt="logo" />
             </a>
           </div>
           <div className="header__logo _dark">
             <a href="" target="_self">
-              <img src="public/logo.png" alt="logo" />
+              <img src="/logo.png" alt="logo" />
             </a>
           </div>
           <nav className="header__nav">
@@ -24,7 +24,6 @@ export const Header = () => {
               className="header__pop-user-set pop-user-set"
               id="user-set-target"
             >
-              {/* <!-- <a href="">x</a> --> */}
               <p className="pop-user-set__name">Ivan Ivanov</p>
               <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
               <div className="pop-user-set__theme">

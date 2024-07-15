@@ -1,4 +1,4 @@
-import { Calendar } from "../calendar/Calendar";
+import { Calendar } from "../../calendar/Calendar";
 
 export const PopBrowse = () => {
   return (
@@ -47,7 +47,7 @@ export const PopBrowse = () => {
                     name="text"
                     id="textArea01"
                     readOnly
-                    placeholder="Введите описание задачи..."
+                    placeholder="Описание задачи"
                   ></textarea>
                 </div>
               </form>
