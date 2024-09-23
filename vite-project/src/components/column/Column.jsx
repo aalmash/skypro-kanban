@@ -1,12 +1,13 @@
 import { Card } from "../card/Card";
+import * as S from "./column.styled";
 
 export const Column = ({ title, cards }) => {
   return (
-    <div className="main__column column">
-      <div className="column__title">
+    <S.MainColumn>
+      <S.ColumnTitle>
         <p>{title}</p>
-      </div>
-      <div className="cards">
+      </S.ColumnTitle>
+      <S.Cards>
         {cards.map((card) => {
           return (
             <Card
@@ -17,7 +18,7 @@ export const Column = ({ title, cards }) => {
             />
           );
         })}
-      </div>
-    </div>
+      </S.Cards>
+    </S.MainColumn>
   );
 };

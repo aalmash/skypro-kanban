@@ -1,30 +1,27 @@
+import * as S from "./card.styled";
+
 export const Card = ({ category, topic, date }) => {
-  const colors = {
-    "Web Design": "_orange",
-    "Research": "_purple",
-    "Copywriting": "_green",
-  }
   return (
-    <div className="cards__item">
-      <div className="cards__card card">
+    <S.CardsItem>
+      <S.Card>
         <>
-          <div className="card__group">
-            <div className={`card__theme ${colors[category]}`}>
+          <S.CardsGroup>
+            <S.CardTheme $color={category}>
               <p>{category}</p>
-            </div>
+            </S.CardTheme>
             <a href="#popBrowse" target="_self">
-              <div className="card__btn">
+              <S.CardBtn>
                 <div></div>
                 <div></div>
                 <div></div>
-              </div>
+              </S.CardBtn>
             </a>
-          </div>
-          <div className="card__content">
+          </S.CardsGroup>
+          <S.CardContent>
             <a href="" target="_blank">
-              <h3 className="card__title">{topic}</h3>
+              <S.CardTitle>{topic}</S.CardTitle>
             </a>
-            <div className="card__date">
+            <S.CardDate>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="13"
@@ -54,10 +51,10 @@ export const Card = ({ category, topic, date }) => {
                 </defs>
               </svg>
               <p>{date}</p>
-            </div>
-          </div>
+            </S.CardDate>
+          </S.CardContent>
         </>
-      </div>
-    </div>
+      </S.Card>
+    </S.CardsItem>
   );
 };
