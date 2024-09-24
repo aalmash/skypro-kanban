@@ -8,16 +8,14 @@ export const Column = ({ title, cards }) => {
         <p>{title}</p>
       </S.ColumnTitle>
       <S.Cards>
-        {cards.map((card) => {
-          return (
-            <Card
-              key={card.id}
-              category={card.theme}
-              topic={card.title}
-              date={card.date}
-            />
-          );
-        })}
+        {cards.map((card) => (
+          <Card
+            key={card.id}
+            category={card.theme}
+            topic={card.title}
+            date={card.date}
+          />
+        ))}
       </S.Cards>
     </S.MainColumn>
   );
