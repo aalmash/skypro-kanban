@@ -1,10 +1,23 @@
-export const Column = ({ columnTitle, cards }) => {
+import { Card } from "../card/Card";
+import * as S from "./column.styled";
+
+export const Column = ({ title, cards }) => {
   return (
-    <div className="main__column column">
-      <div className="column__title">
-        <p>{columnTitle}</p>
-      </div>
-      <div className="cards">{cards}</div>
-    </div>
+    <S.MainColumn>
+      <S.ColumnTitle>
+        <p>{title}</p>
+      </S.ColumnTitle>
+      <S.Cards>
+        {cards.map((card) => (
+          <Card
+            key={card.id}
+            id={card.id}
+            category={card.theme}
+            topic={card.title}
+            date={card.date}
+          />
+        ))}
+      </S.Cards>
+    </S.MainColumn>
   );
 };
