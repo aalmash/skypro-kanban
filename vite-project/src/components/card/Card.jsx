@@ -1,25 +1,28 @@
-export const Card = ({ color, category }) => {
+import { Link } from "react-router-dom";
+import * as S from "./card.styled";
+
+export const Card = ({ category, topic, date, id }) => {
   return (
-    <div className="cards__item">
-      <div className="cards__card card">
+    <S.CardsItem>
+      <S.Card>
         <>
-          <div className="card__group">
-            <div className={`card__theme ${color}`}>
+          <S.CardsGroup>
+            <S.CardTheme $color={category}>
               <p>{category}</p>
-            </div>
-            <a href="#popBrowse" target="_self">
-              <div className="card__btn">
+            </S.CardTheme>
+            <Link to={`/card/${id}`} target="_self">
+              <S.CardBtn>
                 <div></div>
                 <div></div>
                 <div></div>
-              </div>
-            </a>
-          </div>
-          <div className="card__content">
+              </S.CardBtn>
+            </Link>
+          </S.CardsGroup>
+          <S.CardContent>
             <a href="" target="_blank">
-              <h3 className="card__title">Название задачи</h3>
+              <S.CardTitle>{topic}</S.CardTitle>
             </a>
-            <div className="card__date">
+            <S.CardDate>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="13"
@@ -48,11 +51,11 @@ export const Card = ({ color, category }) => {
                   </clipPath>
                 </defs>
               </svg>
-              <p>30.10.23</p>
-            </div>
-          </div>
+              <p>{date}</p>
+            </S.CardDate>
+          </S.CardContent>
         </>
-      </div>
-    </div>
+      </S.Card>
+    </S.CardsItem>
   );
 };

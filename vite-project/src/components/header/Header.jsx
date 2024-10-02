@@ -1,42 +1,58 @@
-export const Header = () => {
+import { useState } from "react";
+import * as S from "./header.styled";
+import { Container } from "../../globalStyle.styled";
+import { Link } from "react-router-dom";
+import { routes } from "../../router/routes";
+
+export const Header = ({ addCard, setChangeTheme, changeTheme }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleShowUser = () => {
+    setIsOpen((prevState) => !prevState);
+  };
+
+  const onChangeTheme = () => {
+    setChangeTheme(changeTheme === "light" ? "dark" : "light");
+  };
+
   return (
-    <header className="header">
-      <div className="container">
-        <div className="header__block">
-          <div className="header__logo _show _light">
+    <S.Header>
+      <Container>
+        <S.HeaderBlock>
+          <S.HeaderLogo>
             <a href="" target="_self">
-              <img src="/logo.png" alt="logo" />
+              <img
+                src={changeTheme === "light" ? "/logo.png" : "/logo_dark.png"}
+                alt="logo"
+              />
             </a>
-          </div>
-          <div className="header__logo _dark">
-            <a href="" target="_self">
-              <img src="/logo.png" alt="logo" />
-            </a>
-          </div>
-          <nav className="header__nav">
-            <button className="header__btn-main-new _hover01" id="btnMainNew">
-              <a href="#popNewCard">Создать новую задачу</a>
-            </button>
-            <a href="#user-set-target" className="header__user _hover02">
-              Ivan Ivanov
-            </a>
-            <div
-              className="header__pop-user-set pop-user-set"
-              id="user-set-target"
-            >
-              <p className="pop-user-set__name">Ivan Ivanov</p>
-              <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-              <div className="pop-user-set__theme">
+          </S.HeaderLogo>
+          <S.HeaderNav>
+            <S.HeaderBtnNew>
+              <a onClick={addCard}>Создать новую задачу</a>
+            </S.HeaderBtnNew>
+            <S.HeaderUser onClick={toggleShowUser}>Ivan Ivanov</S.HeaderUser>
+          </S.HeaderNav>
+          {isOpen && (
+            <S.HeaderPopUserSet id="user-set-target">
+              <S.PopUserSetName>Ivan Ivanov</S.PopUserSetName>
+              <S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
+              <S.PopUserSetTheme>
                 <p>Темная тема</p>
-                <input type="checkbox" className="checkbox" name="checkbox" />
-              </div>
-              <button type="button" className="_hover03">
-                <a href="#popExit">Выйти</a>
-              </button>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </header>
+                <input
+                  checked={changeTheme === "dark"}
+                  onClick={onChangeTheme}
+                  type="checkbox"
+                  name="checkbox"
+                />
+              </S.PopUserSetTheme>
+              <S.HeaderPopUserSetButton type="button">
+                <Link to={routes.exit}>Выйти</Link>
+              </S.HeaderPopUserSetButton>
+            </S.HeaderPopUserSet>
+          )}
+        </S.HeaderBlock>
+      </Container>
+    </S.Header>
   );
 };
